@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- endinject -->
+</head>
+<body>
+<div ng-controller="MainController as mainController">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Bank</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav" ng-if="mainController.security.isAuthenticated">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  translate="accounts"></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#!/manage-accounts">{{ 'manage' | translate }}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" translate="language"></a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="mainController.setLanguage('en')">{{ 'english' | translate }}</a></li>
+                            <li><a ng-click="mainController.setLanguage('pl')">{{ 'polish'| translate }}</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="menu" ng-click="mainController.logout()" ng-if="mainController.security.isAuthenticated">{{ 'logout' | translate }}</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div ng-view class="container"></div>
+    <div class="navbar navbar-default navbar-fixed-bottom">
+        <span class="copyright pull-left">Bank Sp. z o.o.</span>
+    </div>
+</div>
+<!-- inject:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-translate/angular-translate.js"></script>
+<script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+<script src="app/app.js"></script>
+<script src="app/app.config.js"></script>
+<script src="app/app.routes.js"></script>
+<script src="app/eventbus/eventbus.module.js"></script>
+<script src="app/authentication/authentication.module.js"></script>
+<script src="app/main/main.module.js"></script>
+<script src="app/eventbus/eventbus.service.js"></script>
+<script src="app/authentication/authentication.service.js"></script>
+<script src="app/authentication/authentication.controller.js"></script>
+<script src="app/main/main.controller.js"></script>
+<!-- endinject -->
+</body>
+</html>
