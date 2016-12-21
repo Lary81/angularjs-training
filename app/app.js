@@ -6,6 +6,7 @@
             'ngRoute',
             'ngCookies',
             'pascalprecht.translate',
+            'ui.bootstrap',
             'main',
             'common',
             'accounts',

@@ -4,10 +4,10 @@
     angular.module('accounts')
         .controller('AccountsController', AccountsController);
 
-    AccountsController.$inject = ['$timeout', 'accountsService'];
+    AccountsController.$inject = ['$timeout', '$uibModal', 'accountsService'];
 
     /* @ngInject */
-    function AccountsController($timeout, accountsService) {
+    function AccountsController($timeout, $uibModal, accountsService) {
         var vm = this,
             sortBy = {
                 order: 1,
@@ -29,6 +29,7 @@
         vm.showPreviousPage = showPreviousPage;
         vm.showNextPage = showNextPage;
         vm.sort = sort;
+        vm.showOperationModal = showOperationModal;
 
         activate();
 
@@ -91,6 +92,13 @@
             return 0;
         }
 
+        function showOperationModal() {
+            $uibModal.open({
+                templateUrl: 'operation-template',
+                controller: OperationController
+            });
+        }
+        
     }
 
 })();
