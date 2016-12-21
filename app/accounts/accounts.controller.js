@@ -8,7 +8,11 @@
 
     /* @ngInject */
     function AccountsController($timeout, accountsService) {
-        var vm = this;
+        var vm = this,
+            sortBy = {
+                order: 1,
+                column: 'number'
+            };
 
         vm.operation = {
             status: ''
@@ -19,10 +23,6 @@
             pageNumber: 0,
             totalPages: 0,
             accounts: []
-        };
-        vm.sort = {
-            order: 1,
-            column: ''
         };
 
         vm.createAccount = createAccount;
@@ -76,21 +76,19 @@
         }
 
         function sort(column) {
-            if (vm.sort.column === column || vm.sort.column === '') {
-                vm.sort.order *= -1;
-            } else {
-                vm.sort.order = 1;
+            sortBy.order = sortBy.column === column ? sortBy.order *= -1 : 1;
+            sortBy.column = column;
+            vm.page.accounts.sort(comparator);
+        }
+
+        function comparator(account, otherAccount) {
+            if (account[sortBy.column] > otherAccount[sortBy.column]) {
+                return sortBy.order;
             }
-            vm.sort.column = column;
-            vm.page.accounts.sort(function (account, otherAccount) {
-                if (account[column] > otherAccount[column]) {
-                    return 1 * vm.sort.order;
-                }
-                if (account[column] < otherAccount[column]) {
-                    return -1 * vm.sort.order;
-                }
-                return 0;
-            });
+            if (account[sortBy.column] < otherAccount[sortBy.column]) {
+                return -1 * sortBy.order;
+            }
+            return 0;
         }
 
     }
