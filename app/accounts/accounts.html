@@ -35,13 +35,15 @@
     <div class="modal-body">
         <form class="form">
             <div class="form-group">
-                {{ 'number' | translate}}:
+                {{ 'number' | translate}}: {{ operationController.operation.sourceAccountNumber }}
             </div>
             <div class="form-group">
-                <input name="funds" type="text" class="form-control" placeholder="{{ 'funds' | translate}}"/>
+                <input name="funds" type="text" class="form-control" placeholder="{{ 'funds' | translate}}"
+                    ng-model="operationController.operation.funds"/>
             </div>
             <div class="form-group">
-                <select class="form-control"/>
+                <select class="form-control" ng-model="operationController.operation.name"
+                    ng-options="type as type | translate for type in operationController.operation.types"/>
             </div>
         </form>
     </div>

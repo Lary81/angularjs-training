@@ -12,8 +12,8 @@
         var vm = this;
 
         vm.credentials = {
-            login: '',
-            password: ''
+            login: 'Jan',
+            password: '123'
         };
         vm.errors = {
             show: false
