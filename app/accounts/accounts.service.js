@@ -9,10 +9,12 @@
     /* @ngInject */
     function accountsService($http, $q) {
         var service = this,
-            accountsUrl = 'http://localhost:8080/api/accounts';
+            accountsUrl = 'http://localhost:8080/api/accounts',
+            operationsUrl = 'http://localhost:8080/api/operations';
 
         service.createAccount = createAccount;
         service.getAccounts = getAccounts;
+        service.process = process;
 
         ////////////////
 
@@ -44,6 +46,13 @@
             });
         }
 
+        function process(operation) {
+            return $http({
+                url: operationsUrl,
+                method: 'POST',
+                data: operation
+            });
+        }
     }
 
 })();

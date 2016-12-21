@@ -104,9 +104,16 @@
                     types: ['depositOperation', 'withdrawOperation']
                 };
 
+                vm.ok = ok;
                 vm.cancel = close;
 
                 ////////////////
+
+                function ok() {
+                    close();
+                    vm.operation.funds *= 100;
+                    accountsService.process(vm.operation).then(refresh);
+                }
 
                 function close() {
                     $uibModalInstance.close();
