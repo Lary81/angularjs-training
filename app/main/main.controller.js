@@ -40,6 +40,7 @@
 
         function logout() {
             vm.security.isAuthenticated = false;
+            authenticationService.logout();
             $location.path('/login');
         }
 
