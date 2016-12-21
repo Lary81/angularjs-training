@@ -7,6 +7,7 @@
             'ngCookies',
             'pascalprecht.translate',
             'main',
+            'common',
             'accounts',
             'eventbus',
             'authentication'

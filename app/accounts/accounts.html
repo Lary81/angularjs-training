@@ -15,9 +15,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="account in accountsController.page.accounts">
+    <tr ng-repeat="account in accountsController.page.accounts" t-hover>
         <td>{{ account.number }}</td>
-        <td>{{ account.balance / 100 | number: 2 }}</td>
+        <td>{{ account.balance | money }}</td>
     </tr>
     </tbody>
 </table>
@@ -27,3 +27,25 @@
         <li><a ng-click="accountsController.showNextPage()" ng-hide="!accountsController.page.hasNext">{{ 'next' | translate }}</a></li>
     </ul>
 </nav>
+<script type="text/ng-template" id="operation.html">
+    <div class="modal-header">
+        <h3 class="modal-title">{{ 'account' | translate }}</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form">
+            <div class="form-group">
+                {{ 'number' | translate}}:
+            </div>
+            <div class="form-group">
+                <input name="funds" type="text" class="form-control" placeholder="{{ 'funds' | translate}}"/>
+            </div>
+            <div class="form-group">
+                <select class="form-control"/>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button">OK</button>
+        <button class="btn btn-warning" type="button">Cancel</button>
+    </div>
+</script>
