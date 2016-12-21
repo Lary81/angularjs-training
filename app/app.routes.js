@@ -13,6 +13,11 @@
             controller: 'AuthenticationController',
             controllerAs: 'authenticationController'
         });
+        $routeProvider.when('/manage-accounts', {
+            templateUrl: 'app/accounts/accounts.html',
+            controller: 'AccountsController',
+            controllerAs: 'accountsController'
+        });
     }
 
 })();

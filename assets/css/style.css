@@ -3,6 +3,10 @@
     color: #777;
 }
 
+.options {
+    margin-bottom: 60px;
+}
+
 .hover {
     background-color: #b9def0;
 }

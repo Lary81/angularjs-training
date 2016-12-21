@@ -7,6 +7,7 @@
             'ngCookies',
             'pascalprecht.translate',
             'main',
+            'accounts',
             'eventbus',
             'authentication'
         ]);

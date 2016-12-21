@@ -1,0 +1,21 @@
+<div class="alert alert-success pull-right" ng-hide="accountsController.operation.status !== 'success'">{{ 'success' | translate }}</div>
+<div class="alert alert-danger pull-right" ng-hide="accountsController.operation.status !== 'failure'">{{ 'failure' | translate }}</div>
+<div class="options">
+    <button type="button" class="btn btn-info pull-left" ng-click="accountsController.createAccount()">{{ 'createNew' | translate }}</button>
+</div>
+
+<h1>{{ 'accounts' | translate }}</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th translate="number" ng-click="accountsController.sort('number')"></th>
+        <th translate="balance" ng-click="accountsController.sort('balance')"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="account in accountsController.accounts">
+        <td>{{ account.number }}</td>
+        <td>{{ account.balance / 100 | number: 2 }}</td>
+    </tr>
+    </tbody>
+</table>

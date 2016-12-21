@@ -15,7 +15,6 @@
             login: '',
             password: ''
         };
-
         vm.errors = {
             show: false
         };
