@@ -46,7 +46,8 @@
         }
 
         function createAccount() {
-            accountsService.createAccount().then(onCreateAccountSuccess, onCreateAccountError).finally(onCreateAccountComplete);
+            accountsService.createAccount().then(onCreateAccountSuccess, onCreateAccountError)
+                .finally(onCreateAccountComplete);
         }
 
         function onCreateAccountSuccess() {
@@ -93,9 +94,31 @@
         }
 
         function showOperationModal() {
+            function OperationController($uibModalInstance) {
+                var vm = this;
+
+                vm.operation = {
+                    sourceAccountNumber: account.number,
+                    funds: 0,
+                    name: 'depositOperation',
+                    types: ['depositOperation', 'withdrawOperation']
+                };
+
+                vm.cancel = close;
+
+                ////////////////
+
+                function close() {
+                    $uibModalInstance.close();
+                }
+            }
+
+            OperationController.$inject = ['$uibModalInstance'];
+
             $uibModal.open({
                 templateUrl: 'operation-template',
-                controller: OperationController
+                controller: OperationController,
+                controllerAs: 'operationController'
             });
         }
         

@@ -15,7 +15,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="account in accountsController.page.accounts" t-hover>
+    <tr ng-repeat="account in accountsController.page.accounts" t-hover
+        ng-click="accountsController.showOperationModal(account)">
         <td>{{ account.number }}</td>
         <td>{{ account.balance | money }}</td>
     </tr>
@@ -46,6 +47,6 @@
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" type="button">OK</button>
-        <button class="btn btn-warning" type="button">Cancel</button>
+        <button class="btn btn-warning" type="button" ng-click="operationController.cancel()">Cancel</button>
     </div>
 </script>
