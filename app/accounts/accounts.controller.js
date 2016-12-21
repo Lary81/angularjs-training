@@ -93,7 +93,7 @@
             return 0;
         }
 
-        function showOperationModal() {
+        function showOperationModal(account) {
             function OperationController($uibModalInstance) {
                 var vm = this;
 
