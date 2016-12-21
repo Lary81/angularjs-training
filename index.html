@@ -8,9 +8,35 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- endinject -->
+    <!-- inject:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/app.routes.js"></script>
+    <script src="app/accounts/accounts.module.js"></script>
+    <script src="app/eventbus/eventbus.module.js"></script>
+    <script src="app/authentication/authentication.module.js"></script>
+    <script src="app/main/main.module.js"></script>
+    <script src="app/accounts/accounts.service.js"></script>
+    <script src="app/eventbus/eventbus.service.js"></script>
+    <script src="app/authentication/authentication.service.js"></script>
+    <script src="app/accounts/accounts.controller.js"></script>
+    <script src="app/authentication/authentication.controller.js"></script>
+    <script src="app/main/main.controller.js"></script>
+    <!-- endinject -->
 </head>
 <body>
-<div ng-controller="MainController as mainController">
+<div ng-controller="MainController as mainController" ng-cloak>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -49,31 +75,5 @@
         <span class="copyright pull-left">Bank Sp. z o.o.</span>
     </div>
 </div>
-<!-- inject:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-messages/angular-messages.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="bower_components/angular-translate/angular-translate.js"></script>
-<script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
-<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-<script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-<script src="app/app.js"></script>
-<script src="app/app.config.js"></script>
-<script src="app/app.routes.js"></script>
-<script src="app/accounts/accounts.module.js"></script>
-<script src="app/authentication/authentication.module.js"></script>
-<script src="app/eventbus/eventbus.module.js"></script>
-<script src="app/main/main.module.js"></script>
-<script src="app/accounts/accounts.service.js"></script>
-<script src="app/authentication/authentication.service.js"></script>
-<script src="app/eventbus/eventbus.service.js"></script>
-<script src="app/accounts/accounts.controller.js"></script>
-<script src="app/authentication/authentication.controller.js"></script>
-<script src="app/main/main.controller.js"></script>
-<!-- endinject -->
 </body>
 </html>
