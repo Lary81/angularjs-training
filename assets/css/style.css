@@ -3,12 +3,12 @@
     color: #777;
 }
 
-.options {
-    margin-bottom: 80px;
+.margin-bottom {
+    margin-bottom: 60px;
 }
 
-.title {
-    display: inline;
+.small-margin-top {
+    margin-bottom: 40px;
 }
 
 .hover {

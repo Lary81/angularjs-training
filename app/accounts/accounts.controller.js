@@ -4,7 +4,7 @@
     angular.module('accounts')
         .controller('AccountsController', AccountsController);
 
-    AccountsController.$inject = ['$timeout', 'accountsService' ];
+    AccountsController.$inject = ['$timeout', 'accountsService'];
 
     /* @ngInject */
     function AccountsController($timeout, accountsService) {
@@ -20,10 +20,15 @@
             totalPages: 0,
             accounts: []
         };
+        vm.sort = {
+            order: 1,
+            column: ''
+        };
 
         vm.createAccount = createAccount;
         vm.showPreviousPage = showPreviousPage;
         vm.showNextPage = showNextPage;
+        vm.sort = sort;
 
         activate();
 
@@ -68,6 +73,24 @@
         function showNextPage() {
             vm.page.pageNumber++;
             refresh();
+        }
+
+        function sort(column) {
+            if (vm.sort.column === column || vm.sort.column === '') {
+                vm.sort.order *= -1;
+            } else {
+                vm.sort.order = 1;
+            }
+            vm.sort.column = column;
+            vm.page.accounts.sort(function (account, otherAccount) {
+                if (account[column] > otherAccount[column]) {
+                    return 1 * vm.sort.order;
+                }
+                if (account[column] < otherAccount[column]) {
+                    return -1 * vm.sort.order;
+                }
+                return 0;
+            });
         }
 
     }

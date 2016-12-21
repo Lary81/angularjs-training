@@ -1,18 +1,17 @@
-<div class="alert alert-success pull-right" ng-hide="accountsController.operation.status !== 'success'">{{ 'success' | translate }}</div>
-<div class="alert alert-danger pull-right" ng-hide="accountsController.operation.status !== 'failure'">{{ 'failure' | translate }}</div>
-<div class="options">
+<div class="margin-bottom">
     <button type="button" class="btn btn-info pull-left" ng-click="accountsController.createAccount()">{{ 'createNew' | translate }}</button>
+    <div class="alert alert-success pull-right" ng-hide="accountsController.operation.status !== 'success'">{{ 'success' | translate }}</div>
+    <div class="alert alert-danger pull-right" ng-hide="accountsController.operation.status !== 'failure'">{{ 'failure' | translate }}</div>
 </div>
-
-<h1 class="title">{{ 'accounts' | translate }}</h1>
+<h1>{{ 'accounts' | translate }}</h1>
 <div class="pull-right">
     {{ 'page' | translate }} {{ accountsController.page.pageNumber + 1}} / {{ accountsController.page.totalPages }}
 </div>
 <table class="table">
     <thead>
     <tr>
-        <th translate="number"></th>
-        <th translate="balance"></th>
+        <th translate="number" ng-click="accountsController.sort('number')"></th>
+        <th translate="balance" ng-click="accountsController.sort('balance')"></th>
     </tr>
     </thead>
     <tbody>
@@ -22,7 +21,7 @@
     </tr>
     </tbody>
 </table>
-<nav class="options">
+<nav class="margin-bottom">
     <ul class="pager">
         <li><a ng-click="accountsController.showPreviousPage()" ng-hide="!accountsController.page.hasPrevious">{{ 'previous' | translate }}</a></li>
         <li><a ng-click="accountsController.showNextPage()" ng-hide="!accountsController.page.hasNext">{{ 'next' | translate }}</a></li>
