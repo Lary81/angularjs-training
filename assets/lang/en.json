@@ -20,5 +20,8 @@
   "required": "Value is required",
   "minlength": "Value is to short",
   "pattern": "Invalid value",
-  "logout": "Logout"
+  "logout": "Logout",
+  "previous": "Previous",
+  "next": "Next",
+  "page": "Page"
 }

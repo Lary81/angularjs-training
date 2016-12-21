@@ -4,18 +4,27 @@
     <button type="button" class="btn btn-info pull-left" ng-click="accountsController.createAccount()">{{ 'createNew' | translate }}</button>
 </div>
 
-<h1>{{ 'accounts' | translate }}</h1>
+<h1 class="title">{{ 'accounts' | translate }}</h1>
+<div class="pull-right">
+    {{ 'page' | translate }} {{ accountsController.page.pageNumber + 1}} / {{ accountsController.page.totalPages }}
+</div>
 <table class="table">
     <thead>
     <tr>
-        <th translate="number" ng-click="accountsController.sort('number')"></th>
-        <th translate="balance" ng-click="accountsController.sort('balance')"></th>
+        <th translate="number"></th>
+        <th translate="balance"></th>
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="account in accountsController.accounts">
+    <tr ng-repeat="account in accountsController.page.accounts">
         <td>{{ account.number }}</td>
         <td>{{ account.balance / 100 | number: 2 }}</td>
     </tr>
     </tbody>
 </table>
+<nav class="options">
+    <ul class="pager">
+        <li><a ng-click="accountsController.showPreviousPage()" ng-hide="!accountsController.page.hasPrevious">{{ 'previous' | translate }}</a></li>
+        <li><a ng-click="accountsController.showNextPage()" ng-hide="!accountsController.page.hasNext">{{ 'next' | translate }}</a></li>
+    </ul>
+</nav>

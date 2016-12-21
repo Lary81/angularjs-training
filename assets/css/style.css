@@ -4,7 +4,11 @@
 }
 
 .options {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
+}
+
+.title {
+    display: inline;
 }
 
 .hover {

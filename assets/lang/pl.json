@@ -20,5 +20,8 @@
   "required": "Pole jest wymagane",
   "minlength": "Pole jest zbyt krótkie",
   "pattern": "Wartość jest niepoprawna",
-  "logout": "Wyloguj"
+  "logout": "Wyloguj",
+  "previous": "Poprzednia strona",
+  "next": "Następna strona",
+  "page": "Strona"
 }

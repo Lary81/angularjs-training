@@ -13,9 +13,17 @@
         vm.operation = {
             status: ''
         };
-        vm.accounts = [];
+        vm.page = {
+            hasPrevious: false,
+            hasNext: false,
+            pageNumber: 0,
+            totalPages: 0,
+            accounts: []
+        };
 
         vm.createAccount = createAccount;
+        vm.showPreviousPage = showPreviousPage;
+        vm.showNextPage = showNextPage;
 
         activate();
 
@@ -26,8 +34,8 @@
         }
 
         function refresh() {
-            accountsService.getAccounts().then(function (accounts) {
-                vm.accounts = accounts;
+            accountsService.getAccounts(vm.page.pageNumber).then(function (page) {
+                vm.page = page;
             });
         }
 
@@ -50,6 +58,16 @@
 
         function resetStatus() {
             vm.operation.status = '';
+        }
+
+        function showPreviousPage() {
+            vm.page.pageNumber--;
+            refresh();
+        }
+
+        function showNextPage() {
+            vm.page.pageNumber++;
+            refresh();
         }
 
     }

@@ -34,7 +34,14 @@
         }
 
         function onGetAccountsResponse(response) {
-            return $q.resolve(response.data.accounts);
+            var data = response.data;
+            return $q.resolve({
+                accounts: data.accounts,
+                pageNumber: data.pageNumber,
+                totalPages: data.totalPages,
+                hasNext: data.pageNumber < data.totalPages - 1,
+                hasPrevious: data.pageNumber > 0
+            });
         }
 
     }
