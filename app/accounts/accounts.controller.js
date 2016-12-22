@@ -99,13 +99,14 @@
 
                 vm.operation = {
                     sourceAccountNumber: account.number,
-                    funds: 0,
+                    funds: 10,
                     name: 'depositOperation',
                     types: ['depositOperation', 'withdrawOperation']
                 };
 
                 vm.ok = ok;
                 vm.cancel = close;
+                vm.onFundsChange = onFundsChange;
 
                 ////////////////
 
@@ -117,6 +118,10 @@
 
                 function close() {
                     $uibModalInstance.close();
+                }
+
+                function onFundsChange(newValue, oldValue) {
+                    console.log(newValue, oldValue);
                 }
             }
 

@@ -38,8 +38,8 @@
                 {{ 'number' | translate}}: {{ operationController.operation.sourceAccountNumber }}
             </div>
             <div class="form-group">
-                <input name="funds" type="text" class="form-control" placeholder="{{ 'funds' | translate}}"
-                    ng-model="operationController.operation.funds"/>
+                <t-spinner step="10" min="0" value="operationController.operation.funds"
+                           on-change="operationController.onFundsChange(newValue, oldValue)"/>
             </div>
             <div class="form-group">
                 <select class="form-control" ng-model="operationController.operation.name"

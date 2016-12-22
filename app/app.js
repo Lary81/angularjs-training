@@ -7,6 +7,7 @@
             'ngCookies',
             'pascalprecht.translate',
             'ui.bootstrap',
+            'components',
             'main',
             'common',
             'accounts',
