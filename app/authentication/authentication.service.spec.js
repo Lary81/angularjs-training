@@ -1,6 +1,6 @@
 describe('Security service', function () {
 
-    beforeEach(module('authentication', 'busService'));
+    beforeEach(module('authentication', 'eventbus'));
 
     describe('Login process', function () {
         var httpBackend,
@@ -18,10 +18,10 @@ describe('Security service', function () {
         beforeEach(inject(function ($httpBackend, $http, $injector) {
             httpBackend = $httpBackend;
             http = $http;
-            securityService = $injector.get('securityService', {
+            securityService = $injector.get('authenticationService', {
                 '$http': $httpBackend
             });
-            eventbus = $injector.get('busService');
+            busService = $injector.get('busService');
         }));
 
         function whenLoginProperly() {
@@ -38,8 +38,8 @@ describe('Security service', function () {
             expect(http.defaults.headers.common.Authorization).toBe('Bearer ' + token);
         });
 
-        it('should broadcast hasAuthorized event after user login', function (done) {
-            eventbus.on('hasAuthorized').then(function () {
+        it('should broadcast has-authenticated event after user login', function (done) {
+            busService.on('has-authenticated', function () {
                 done();
             });
             whenLoginProperly();
