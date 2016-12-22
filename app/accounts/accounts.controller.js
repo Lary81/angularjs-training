@@ -24,12 +24,12 @@
             totalPages: 0,
             data: []
         };
-        vm.provider = accountsService;
+/*        vm.provider = accountsService;
         vm.model = {
             number: 'number',
             balance: 'balance'
         };
-        vm.api = {};
+        vm.api = {};*/
 
         vm.createAccount = createAccount;
         vm.showPreviousPage = showPreviousPage;
@@ -46,9 +46,9 @@
         }
 
         function refresh() {
-            if (vm.api.refresh) {
+/*            if (vm.api.refresh) {
                 vm.api.refresh();
-            }
+            }*/
             accountsService.getAccounts(vm.page.pageNumber).then(function (page) {
                 vm.page = page;
             });

@@ -5,6 +5,7 @@
         .module('app', [
             'ngRoute',
             'ngCookies',
+            'ngMessages',
             'pascalprecht.translate',
             'ui.bootstrap',
             'components',

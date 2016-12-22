@@ -33,13 +33,20 @@
         <h3 class="modal-title">{{ 'account' | translate }}</h3>
     </div>
     <div class="modal-body">
-        <form class="form">
+        <form class="form" novalidate name="operationController.operationForm">
             <div class="form-group">
                 {{ 'number' | translate}}: {{ operationController.operation.sourceAccountNumber }}
             </div>
             <div class="form-group">
-                <t-spinner step="10" min="0" value="operationController.operation.funds"
-                           on-change="operationController.onFundsChange(newValue, oldValue)"/>
+                <!--<t-spinner step="10" min="0" value="operationController.operation.funds"-->
+                           <!--on-change="operationController.onFundsChange(newValue, oldValue)"/>-->
+                <div class="form-group">
+                    <input name="funds" type="text" class="form-control" placeholder="{{ 'funds' | translate}}"
+                           ng-model="operationController.operation.funds" required ng-pattern="/^\d+$/"/>
+                    <div ng-messages="operationController.operationForm.funds.$error" ng-messages-multiple>
+                        <div ng-messages-include="app/common/errors.html"></div>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <select class="form-control" ng-model="operationController.operation.name"
@@ -52,5 +59,5 @@
         <button class="btn btn-warning" type="button" ng-click="operationController.cancel()">Cancel</button>
     </div>
 </script>
-<t-grid provider="accountsController.provider" fetch-method="getAccounts" model="accountsController.model
-" api="accountsController.api"/>
+<!--<t-grid provider="accountsController.provider" fetch-method="getAccounts" model="accountsController.model
+" api="accountsController.api"/>-->
