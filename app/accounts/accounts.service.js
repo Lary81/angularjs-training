@@ -38,7 +38,7 @@
         function onGetAccountsResponse(response) {
             var data = response.data;
             return $q.resolve({
-                accounts: data.accounts,
+                data: data.accounts,
                 pageNumber: data.pageNumber,
                 totalPages: data.totalPages,
                 hasNext: data.pageNumber < data.totalPages - 1,

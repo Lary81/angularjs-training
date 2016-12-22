@@ -15,7 +15,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="account in accountsController.page.accounts" t-hover
+    <tr ng-repeat="account in accountsController.page.data" t-hover
         ng-click="accountsController.showOperationModal(account)">
         <td>{{ account.number }}</td>
         <td>{{ account.balance | money }}</td>
@@ -52,3 +52,5 @@
         <button class="btn btn-warning" type="button" ng-click="operationController.cancel()">Cancel</button>
     </div>
 </script>
+<t-grid provider="accountsController.provider" fetch-method="getAccounts" model="accountsController.model
+" api="accountsController.api"/>

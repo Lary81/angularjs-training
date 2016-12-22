@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th ng-repeat="name in gridController.model">{{ name | translate }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="account in gridController.page.data" t-hover>
+        <td ng-repeat="(key, value) in gridController.model">
+            {{ account[key] }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<nav class="margin-bottom">
+    <ul class="pager">
+        <li><a ng-click="gridController.onPreviousPage()" ng-hide="!gridController.page.hasPrevious">{{ 'previous' | translate }}</a></li>
+        <li><a ng-click="gridController.onNextPage()" ng-hide="!gridController.page.hasNext">{{ 'next' | translate }}</a></li>
+    </ul>
+</nav>

@@ -7,7 +7,7 @@
     AccountsController.$inject = ['$timeout', '$uibModal', 'accountsService'];
 
     /* @ngInject */
-    function AccountsController($timeout, $uibModal, accountsService) {
+    function AccountsController($timeout,  $uibModal, accountsService) {
         var vm = this,
             sortBy = {
                 order: 1,
@@ -22,8 +22,14 @@
             hasNext: false,
             pageNumber: 0,
             totalPages: 0,
-            accounts: []
+            data: []
         };
+        vm.provider = accountsService;
+        vm.model = {
+            number: 'number',
+            balance: 'balance'
+        };
+        vm.api = {};
 
         vm.createAccount = createAccount;
         vm.showPreviousPage = showPreviousPage;
@@ -40,6 +46,9 @@
         }
 
         function refresh() {
+            if (vm.api.refresh) {
+                vm.api.refresh();
+            }
             accountsService.getAccounts(vm.page.pageNumber).then(function (page) {
                 vm.page = page;
             });
