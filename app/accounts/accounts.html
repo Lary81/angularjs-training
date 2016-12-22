@@ -55,7 +55,9 @@
         </form>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-primary" type="button" ng-click="operationController.ok()">OK</button>
+        <button class="btn btn-primary" type="button"
+                ng-disabled="operationController.operationForm.$invalid"
+                ng-click="operationController.ok()">OK</button>
         <button class="btn btn-warning" type="button" ng-click="operationController.cancel()">Cancel</button>
     </div>
 </script>
